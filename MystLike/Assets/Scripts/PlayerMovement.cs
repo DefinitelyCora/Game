@@ -27,11 +27,11 @@ public class PlayerMovement : MonoBehaviour
         obj_PlayerControls.Movement.Foward.performed += w => InitiateMoveF();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (movingF)
         {
-            rb.AddForce(transform.forward / movementSpeed, ForceMode.VelocityChange);
+            rb.AddForce(transform.forward * movementSpeed, ForceMode.VelocityChange);
         }
     }
 
