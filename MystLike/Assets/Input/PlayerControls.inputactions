@@ -1,0 +1,87 @@
+{
+    "name": "PlayerControls",
+    "maps": [
+        {
+            "name": "View",
+            "id": "0d1800ba-4159-4239-ad1f-13f820bd382d",
+            "actions": [
+                {
+                    "name": "Look",
+                    "type": "PassThrough",
+                    "id": "6b0cbd30-ac8c-44eb-b424-961127b704d3",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "ac47f5b8-89f5-43f9-b2dd-75cb88c3603a",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Movement",
+            "id": "29306dae-8072-4efe-8b4f-d730b7f9a2db",
+            "actions": [
+                {
+                    "name": "Foward",
+                    "type": "Button",
+                    "id": "17d3c870-7a5a-485c-95a6-1142dcb07b6b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "610cddde-0a18-4dfc-9cde-305698bf287a",
+                    "path": "<Keyboard>/w",
+                    "interactions": "Press(behavior=2)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Foward",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Actions",
+            "id": "549033fe-53b2-446b-bc60-55f7d4b88bd3",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "672637a5-ea0f-4a86-af6a-972b946de300",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "958f29a1-4b90-4f58-8400-92a6977c6e55",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
