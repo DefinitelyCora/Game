@@ -52,6 +52,30 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Back"",
+                    ""type"": ""Button"",
+                    ""id"": ""9e37f259-64ea-408f-8937-7598e93bf294"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Left"",
+                    ""type"": ""Button"",
+                    ""id"": ""5f08bee2-d24d-4cc1-ae96-9da38bb1ba54"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Right"",
+                    ""type"": ""Button"",
+                    ""id"": ""64460d6d-9cc2-4846-9899-295690ae33f5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -63,6 +87,39 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Foward"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""963d227f-2c05-4fdc-a3ee-34d9f4ba91bd"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": ""Press(behavior=2)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Back"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""70c2eec5-3917-493f-b1c6-61455bd81d8d"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": ""Press(behavior=2)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Left"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""08f0861c-c576-4334-aeec-f3bda6362c1a"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": ""Press(behavior=2)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Right"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -104,6 +161,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         // Movement
         m_Movement = asset.FindActionMap("Movement", throwIfNotFound: true);
         m_Movement_Foward = m_Movement.FindAction("Foward", throwIfNotFound: true);
+        m_Movement_Back = m_Movement.FindAction("Back", throwIfNotFound: true);
+        m_Movement_Left = m_Movement.FindAction("Left", throwIfNotFound: true);
+        m_Movement_Right = m_Movement.FindAction("Right", throwIfNotFound: true);
         // Actions
         m_Actions = asset.FindActionMap("Actions", throwIfNotFound: true);
         m_Actions_Newaction = m_Actions.FindAction("New action", throwIfNotFound: true);
@@ -190,11 +250,17 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputActionMap m_Movement;
     private IMovementActions m_MovementActionsCallbackInterface;
     private readonly InputAction m_Movement_Foward;
+    private readonly InputAction m_Movement_Back;
+    private readonly InputAction m_Movement_Left;
+    private readonly InputAction m_Movement_Right;
     public struct MovementActions
     {
         private @PlayerControls m_Wrapper;
         public MovementActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Foward => m_Wrapper.m_Movement_Foward;
+        public InputAction @Back => m_Wrapper.m_Movement_Back;
+        public InputAction @Left => m_Wrapper.m_Movement_Left;
+        public InputAction @Right => m_Wrapper.m_Movement_Right;
         public InputActionMap Get() { return m_Wrapper.m_Movement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -207,6 +273,15 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Foward.started -= m_Wrapper.m_MovementActionsCallbackInterface.OnFoward;
                 @Foward.performed -= m_Wrapper.m_MovementActionsCallbackInterface.OnFoward;
                 @Foward.canceled -= m_Wrapper.m_MovementActionsCallbackInterface.OnFoward;
+                @Back.started -= m_Wrapper.m_MovementActionsCallbackInterface.OnBack;
+                @Back.performed -= m_Wrapper.m_MovementActionsCallbackInterface.OnBack;
+                @Back.canceled -= m_Wrapper.m_MovementActionsCallbackInterface.OnBack;
+                @Left.started -= m_Wrapper.m_MovementActionsCallbackInterface.OnLeft;
+                @Left.performed -= m_Wrapper.m_MovementActionsCallbackInterface.OnLeft;
+                @Left.canceled -= m_Wrapper.m_MovementActionsCallbackInterface.OnLeft;
+                @Right.started -= m_Wrapper.m_MovementActionsCallbackInterface.OnRight;
+                @Right.performed -= m_Wrapper.m_MovementActionsCallbackInterface.OnRight;
+                @Right.canceled -= m_Wrapper.m_MovementActionsCallbackInterface.OnRight;
             }
             m_Wrapper.m_MovementActionsCallbackInterface = instance;
             if (instance != null)
@@ -214,6 +289,15 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Foward.started += instance.OnFoward;
                 @Foward.performed += instance.OnFoward;
                 @Foward.canceled += instance.OnFoward;
+                @Back.started += instance.OnBack;
+                @Back.performed += instance.OnBack;
+                @Back.canceled += instance.OnBack;
+                @Left.started += instance.OnLeft;
+                @Left.performed += instance.OnLeft;
+                @Left.canceled += instance.OnLeft;
+                @Right.started += instance.OnRight;
+                @Right.performed += instance.OnRight;
+                @Right.canceled += instance.OnRight;
             }
         }
     }
@@ -258,6 +342,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     public interface IMovementActions
     {
         void OnFoward(InputAction.CallbackContext context);
+        void OnBack(InputAction.CallbackContext context);
+        void OnLeft(InputAction.CallbackContext context);
+        void OnRight(InputAction.CallbackContext context);
     }
     public interface IActionsActions
     {

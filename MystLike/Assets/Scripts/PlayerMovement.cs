@@ -12,7 +12,10 @@ public class PlayerMovement : MonoBehaviour
     public string leftKey = "a";
     public string rightKey = "d";
 
-    bool movingF = false;
+    bool movingFoward = false;
+    bool movingBack = false;
+    bool movingLeft = false;
+    bool movingRight = false;
 
     public float movementSpeed = 2f;
 
@@ -23,28 +26,85 @@ public class PlayerMovement : MonoBehaviour
         obj_PlayerControls = new PlayerControls();
 
         obj_PlayerControls.Movement.Foward.ChangeBindingWithPath("<Keyboard>/" + fowardKey);
+        obj_PlayerControls.Movement.Back.ChangeBindingWithPath("<Keyboard>/" + backKey);
+        obj_PlayerControls.Movement.Left.ChangeBindingWithPath("<Keyboard>/" + leftKey);
+        obj_PlayerControls.Movement.Right.ChangeBindingWithPath("<Keyboard>/" + rightKey);
 
-        obj_PlayerControls.Movement.Foward.performed += w => InitiateMoveF();
+        obj_PlayerControls.Movement.Foward.performed += w => InitiateMoveFoward();
+        obj_PlayerControls.Movement.Back.performed += s => InitiateMoveBack();
+        obj_PlayerControls.Movement.Left.performed += a => InitiateMoveLeft();
+        obj_PlayerControls.Movement.Right.performed += d => InitiateMoveRight();
     }
 
-    void FixedUpdate()
+    void Update()
     {
-        if (movingF)
+        if (movingFoward)
         {
-            rb.AddForce(transform.forward * movementSpeed, ForceMode.VelocityChange);
+            rb.AddForce(transform.forward * movementSpeed * Time.deltaTime, ForceMode.VelocityChange);
+        }
+        if (movingBack)
+        {
+            rb.AddForce(-transform.forward * movementSpeed * Time.deltaTime, ForceMode.VelocityChange);
+        }
+        if (movingLeft)
+        {
+            rb.AddForce(-transform.right * movementSpeed * Time.deltaTime, ForceMode.VelocityChange);
+        }
+        if (movingRight)
+        {
+            rb.AddForce(transform.right * movementSpeed * Time.deltaTime, ForceMode.VelocityChange);
         }
     }
 
-    void InitiateMoveF()
+    void InitiateMoveFoward()
     {
-        if (movingF)
+        if (movingFoward)
         {
-            movingF = false;
+            movingFoward = false;
             return;
         } 
-        if (!movingF)
+        if (!movingFoward)
         {
-            movingF = true;
+            movingFoward = true;
+        }
+    }
+
+    void InitiateMoveBack()
+    {
+        if (movingBack)
+        {
+            movingBack = false;
+            return;
+        }
+        if (!movingBack)
+        {
+            movingBack = true;
+        }
+    }
+
+    void InitiateMoveLeft()
+    {
+        if (movingLeft)
+        {
+            movingLeft = false;
+            return;
+        }
+        if (!movingLeft)
+        {
+            movingLeft = true;
+        }
+    }
+
+    void InitiateMoveRight()
+    {
+        if (movingRight)
+        {
+            movingRight = false;
+            return;
+        }
+        if (!movingRight)
+        {
+            movingRight = true;
         }
     }
 
