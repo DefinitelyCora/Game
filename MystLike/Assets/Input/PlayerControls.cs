@@ -15,13 +15,97 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     ""name"": ""PlayerControls"",
     ""maps"": [
         {
+            ""name"": ""Movement"",
+            ""id"": ""6f2fbf30-4f91-4b25-98d5-ffc2ebacc86d"",
+            ""actions"": [
+                {
+                    ""name"": ""Foward"",
+                    ""type"": ""Button"",
+                    ""id"": ""ebfa5d3e-4d67-4cfc-b2c9-88204cff51d2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press(behavior=2)""
+                },
+                {
+                    ""name"": ""Back"",
+                    ""type"": ""Button"",
+                    ""id"": ""13792136-b0fc-4dbb-9e31-0505f63c8236"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press(behavior=2)""
+                },
+                {
+                    ""name"": ""Left"",
+                    ""type"": ""Button"",
+                    ""id"": ""ac4a2743-076b-46ea-b563-be03843d0110"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press(behavior=2)""
+                },
+                {
+                    ""name"": ""Right"",
+                    ""type"": ""Button"",
+                    ""id"": ""63cdae5d-13d3-4087-b5b6-e588a7ef6f3e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press(behavior=2)""
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""be470602-1e31-4d21-8681-7aeba6476c84"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Foward"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6900a53c-3521-4385-b1ca-4f4712332371"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Back"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b4e73f0c-5790-4965-818a-c07b9da38666"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Left"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""50862d31-2a54-4201-b78e-58d442fe8a12"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Right"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
             ""name"": ""View"",
-            ""id"": ""0d1800ba-4159-4239-ad1f-13f820bd382d"",
+            ""id"": ""6cbeab6b-6929-4380-ae48-44f6ff82bcd5"",
             ""actions"": [
                 {
                     ""name"": ""Look"",
                     ""type"": ""PassThrough"",
-                    ""id"": ""6b0cbd30-ac8c-44eb-b424-961127b704d3"",
+                    ""id"": ""bb80882a-0b30-4e2b-8d90-4170b854b079"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -30,7 +114,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""ac47f5b8-89f5-43f9-b2dd-75cb88c3603a"",
+                    ""id"": ""2cc679f6-f58f-42d6-bd82-194803be5bd2"",
                     ""path"": ""<Mouse>/delta"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -42,97 +126,13 @@ public class @PlayerControls : IInputActionCollection, IDisposable
             ]
         },
         {
-            ""name"": ""Movement"",
-            ""id"": ""29306dae-8072-4efe-8b4f-d730b7f9a2db"",
-            ""actions"": [
-                {
-                    ""name"": ""Foward"",
-                    ""type"": ""Button"",
-                    ""id"": ""17d3c870-7a5a-485c-95a6-1142dcb07b6b"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""Back"",
-                    ""type"": ""Button"",
-                    ""id"": ""9e37f259-64ea-408f-8937-7598e93bf294"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""Left"",
-                    ""type"": ""Button"",
-                    ""id"": ""5f08bee2-d24d-4cc1-ae96-9da38bb1ba54"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""Right"",
-                    ""type"": ""Button"",
-                    ""id"": ""64460d6d-9cc2-4846-9899-295690ae33f5"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                }
-            ],
-            ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""610cddde-0a18-4dfc-9cde-305698bf287a"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": ""Press(behavior=2)"",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Foward"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""963d227f-2c05-4fdc-a3ee-34d9f4ba91bd"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": ""Press(behavior=2)"",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Back"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""70c2eec5-3917-493f-b1c6-61455bd81d8d"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": ""Press(behavior=2)"",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Left"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""08f0861c-c576-4334-aeec-f3bda6362c1a"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": ""Press(behavior=2)"",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Right"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                }
-            ]
-        },
-        {
             ""name"": ""Actions"",
-            ""id"": ""549033fe-53b2-446b-bc60-55f7d4b88bd3"",
+            ""id"": ""c69e9d31-9473-416d-934b-aca9f23780e7"",
             ""actions"": [
                 {
                     ""name"": ""New action"",
                     ""type"": ""Button"",
-                    ""id"": ""672637a5-ea0f-4a86-af6a-972b946de300"",
+                    ""id"": ""726c5b15-5191-4238-af34-e7938ce8b2ac"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -141,7 +141,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""958f29a1-4b90-4f58-8400-92a6977c6e55"",
+                    ""id"": ""dff0c5e0-4ad7-4e33-9d81-cf793dea8518"",
                     ""path"": """",
                     ""interactions"": """",
                     ""processors"": """",
@@ -155,15 +155,15 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     ],
     ""controlSchemes"": []
 }");
-        // View
-        m_View = asset.FindActionMap("View", throwIfNotFound: true);
-        m_View_Look = m_View.FindAction("Look", throwIfNotFound: true);
         // Movement
         m_Movement = asset.FindActionMap("Movement", throwIfNotFound: true);
         m_Movement_Foward = m_Movement.FindAction("Foward", throwIfNotFound: true);
         m_Movement_Back = m_Movement.FindAction("Back", throwIfNotFound: true);
         m_Movement_Left = m_Movement.FindAction("Left", throwIfNotFound: true);
         m_Movement_Right = m_Movement.FindAction("Right", throwIfNotFound: true);
+        // View
+        m_View = asset.FindActionMap("View", throwIfNotFound: true);
+        m_View_Look = m_View.FindAction("Look", throwIfNotFound: true);
         // Actions
         m_Actions = asset.FindActionMap("Actions", throwIfNotFound: true);
         m_Actions_Newaction = m_Actions.FindAction("New action", throwIfNotFound: true);
@@ -212,39 +212,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     {
         asset.Disable();
     }
-
-    // View
-    private readonly InputActionMap m_View;
-    private IViewActions m_ViewActionsCallbackInterface;
-    private readonly InputAction m_View_Look;
-    public struct ViewActions
-    {
-        private @PlayerControls m_Wrapper;
-        public ViewActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Look => m_Wrapper.m_View_Look;
-        public InputActionMap Get() { return m_Wrapper.m_View; }
-        public void Enable() { Get().Enable(); }
-        public void Disable() { Get().Disable(); }
-        public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(ViewActions set) { return set.Get(); }
-        public void SetCallbacks(IViewActions instance)
-        {
-            if (m_Wrapper.m_ViewActionsCallbackInterface != null)
-            {
-                @Look.started -= m_Wrapper.m_ViewActionsCallbackInterface.OnLook;
-                @Look.performed -= m_Wrapper.m_ViewActionsCallbackInterface.OnLook;
-                @Look.canceled -= m_Wrapper.m_ViewActionsCallbackInterface.OnLook;
-            }
-            m_Wrapper.m_ViewActionsCallbackInterface = instance;
-            if (instance != null)
-            {
-                @Look.started += instance.OnLook;
-                @Look.performed += instance.OnLook;
-                @Look.canceled += instance.OnLook;
-            }
-        }
-    }
-    public ViewActions @View => new ViewActions(this);
 
     // Movement
     private readonly InputActionMap m_Movement;
@@ -303,6 +270,39 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     }
     public MovementActions @Movement => new MovementActions(this);
 
+    // View
+    private readonly InputActionMap m_View;
+    private IViewActions m_ViewActionsCallbackInterface;
+    private readonly InputAction m_View_Look;
+    public struct ViewActions
+    {
+        private @PlayerControls m_Wrapper;
+        public ViewActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Look => m_Wrapper.m_View_Look;
+        public InputActionMap Get() { return m_Wrapper.m_View; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(ViewActions set) { return set.Get(); }
+        public void SetCallbacks(IViewActions instance)
+        {
+            if (m_Wrapper.m_ViewActionsCallbackInterface != null)
+            {
+                @Look.started -= m_Wrapper.m_ViewActionsCallbackInterface.OnLook;
+                @Look.performed -= m_Wrapper.m_ViewActionsCallbackInterface.OnLook;
+                @Look.canceled -= m_Wrapper.m_ViewActionsCallbackInterface.OnLook;
+            }
+            m_Wrapper.m_ViewActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Look.started += instance.OnLook;
+                @Look.performed += instance.OnLook;
+                @Look.canceled += instance.OnLook;
+            }
+        }
+    }
+    public ViewActions @View => new ViewActions(this);
+
     // Actions
     private readonly InputActionMap m_Actions;
     private IActionsActions m_ActionsActionsCallbackInterface;
@@ -335,16 +335,16 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         }
     }
     public ActionsActions @Actions => new ActionsActions(this);
-    public interface IViewActions
-    {
-        void OnLook(InputAction.CallbackContext context);
-    }
     public interface IMovementActions
     {
         void OnFoward(InputAction.CallbackContext context);
         void OnBack(InputAction.CallbackContext context);
         void OnLeft(InputAction.CallbackContext context);
         void OnRight(InputAction.CallbackContext context);
+    }
+    public interface IViewActions
+    {
+        void OnLook(InputAction.CallbackContext context);
     }
     public interface IActionsActions
     {

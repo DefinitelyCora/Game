@@ -9,7 +9,7 @@ public class CameraController : MonoBehaviour
 
     public float mouseSensitivity = .08f;
 
-    public Transform playerBody;
+    Transform playerBody;
 
     float xRotation = 0f;
 
@@ -17,11 +17,12 @@ public class CameraController : MonoBehaviour
     {
         obj_PlayerControls = new PlayerControls();
 
-        obj_PlayerControls.View.Look.performed += w => inputView = w.ReadValue<Vector2>();
+        obj_PlayerControls.View.Look.performed += o => inputView = o.ReadValue<Vector2>();
     }
 
     void Start()
     {
+        playerBody = transform.parent.transform;
         Cursor.lockState = CursorLockMode.Locked;
     }
 

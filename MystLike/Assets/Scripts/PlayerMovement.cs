@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
@@ -30,10 +31,10 @@ public class PlayerMovement : MonoBehaviour
         obj_PlayerControls.Movement.Left.ChangeBindingWithPath("<Keyboard>/" + leftKey);
         obj_PlayerControls.Movement.Right.ChangeBindingWithPath("<Keyboard>/" + rightKey);
 
-        obj_PlayerControls.Movement.Foward.performed += w => InitiateMoveFoward();
-        obj_PlayerControls.Movement.Back.performed += s => InitiateMoveBack();
-        obj_PlayerControls.Movement.Left.performed += a => InitiateMoveLeft();
-        obj_PlayerControls.Movement.Right.performed += d => InitiateMoveRight();
+        obj_PlayerControls.Movement.Foward.performed += _ => movingFoward = !movingFoward;
+        obj_PlayerControls.Movement.Back.performed += _ => movingBack = !movingBack;
+        obj_PlayerControls.Movement.Left.performed += _ => movingLeft = !movingLeft;
+        obj_PlayerControls.Movement.Right.performed += _ => movingRight = !movingRight;
     }
 
     void Update()
@@ -56,63 +57,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void InitiateMoveFoward()
-    {
-        if (movingFoward)
-        {
-            movingFoward = false;
-            return;
-        } 
-        if (!movingFoward)
-        {
-            movingFoward = true;
-        }
-    }
 
-    void InitiateMoveBack()
-    {
-        if (movingBack)
-        {
-            movingBack = false;
-            return;
-        }
-        if (!movingBack)
-        {
-            movingBack = true;
-        }
-    }
-
-    void InitiateMoveLeft()
-    {
-        if (movingLeft)
-        {
-            movingLeft = false;
-            return;
-        }
-        if (!movingLeft)
-        {
-            movingLeft = true;
-        }
-    }
-
-    void InitiateMoveRight()
-    {
-        if (movingRight)
-        {
-            movingRight = false;
-            return;
-        }
-        if (!movingRight)
-        {
-            movingRight = true;
-        }
-    }
-
-
-
-
-
-    //Enable/Diable
     private void OnEnable()
     {
         obj_PlayerControls.Enable();
