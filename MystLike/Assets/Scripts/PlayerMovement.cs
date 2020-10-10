@@ -41,22 +41,31 @@ public class PlayerMovement : MonoBehaviour
     {
         if (movingFoward)
         {
-            rb.AddForce(transform.forward * movementSpeed * Time.deltaTime, ForceMode.VelocityChange);
+            rb.AddForce(FowardVector(), ForceMode.VelocityChange);
         }
         if (movingBack)
         {
-            rb.AddForce(-transform.forward * movementSpeed * Time.deltaTime, ForceMode.VelocityChange);
+            rb.AddForce(-FowardVector(), ForceMode.VelocityChange);
         }
         if (movingLeft)
         {
-            rb.AddForce(-transform.right * movementSpeed * Time.deltaTime, ForceMode.VelocityChange);
+            rb.AddForce(-SideVector(), ForceMode.VelocityChange);
         }
         if (movingRight)
         {
-            rb.AddForce(transform.right * movementSpeed * Time.deltaTime, ForceMode.VelocityChange);
+            rb.AddForce(SideVector(), ForceMode.VelocityChange);
         }
     }
 
+    private Vector3 FowardVector()
+    {
+        return transform.forward * movementSpeed * Time.deltaTime;
+    }
+
+    private Vector3 SideVector()
+    {
+        return transform.right * movementSpeed * Time.deltaTime;
+    }
 
     private void OnEnable()
     {

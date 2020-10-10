@@ -38,12 +38,6 @@ public class CameraController : MonoBehaviour
         playerBody.Rotate(Vector3.up * mouseX);
     }
 
-
-
-
-
-
-    //Enable/Diable
     private void OnEnable()
     {
         obj_PlayerControls.Enable();
